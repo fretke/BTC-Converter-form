@@ -1,0 +1,22 @@
+.Element {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0;
+}
+
+.Element > div:first-child,
+.Element > :nth-child(2) {
+  display: inline-block;
+  width: 40%;
+}
+
+.Element > div:last-child {
+  display: inline-block;
+  width: 20%;
+}
+
+.Element h1 {
+  font-size: 1rem;
+  text-align: center;
+}
