@@ -1,21 +1,21 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
 import styles from "./BTCinput.module.css";
 
 const BTCinput = ({ inputHandler, currentValue }) => {
   return (
     <div className={styles.Container}>
       <div>
-        <h1>Enter BTC quantity</h1>
-      </div>
-      <div>
-        <input
+        <TextField
+          color="primary"
           onChange={(event) => {
             inputHandler(event);
           }}
           name="btcInput"
           value={currentValue}
-          placeholder="enter value"
-        ></input>
+          id="outlined-basic"
+          label="Quantity"
+        />
       </div>
     </div>
   );

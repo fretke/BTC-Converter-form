@@ -15,3 +15,10 @@ export const formatCurrency = (value, currency) => {
   }
   return converted + "." + rightSide;
 };
+
+export const validateInput = (input) => {
+  if (input.length === 0) return true;
+  let reggex = /^\d+\.?\d*$/;
+  if (input.match(reggex)) return true;
+  return false;
+};

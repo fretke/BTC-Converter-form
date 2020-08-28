@@ -1,13 +1,34 @@
-.Form {
-  margin: 15% auto;
-  width: 40%;
-  /* height: 200px; */
-  border: solid 1px black;
-  background-color: #f1f3f8;
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #f1f1f1;
 }
 
-.Form > h1 {
-  color: #393b44;
-  font-size: 2rem;
-  text-align: center;
+.Form {
+  margin: 100px auto;
+  width: 400px;
+  border: solid 1px black;
+  background-color: #fff;
+  border-radius: 6px;
+
+  box-shadow: 0 1px 10px 1px #000;
+}
+
+.Form > hr:first-child {
+  margin-top: 10px;
+  background: #616161;
+  width: 100%;
+  height: 1px;
+  border: none;
+}
+
+.Title {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Title > img {
+  width: 60px;
 }
