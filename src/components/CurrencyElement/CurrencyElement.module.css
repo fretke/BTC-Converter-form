@@ -17,6 +17,10 @@
   text-align: right;
 }
 
-.Element svg:hover {
+.Element svg {
+  transition: 0.3s;
+}
+
+.Element button:hover svg {
   color: red;
 }

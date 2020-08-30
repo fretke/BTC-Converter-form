@@ -11,11 +11,17 @@
   border: 1px solid black;
   outline: none;
   border-radius: 10px;
+  transition: 0.3s;
 }
 
 .DropDown:hover {
   background-color: #f7931a;
   border: 1px solid #f7931a;
+  opacity: 1;
+}
+
+.DropDown svg {
+  transition: 0.3s;
 }
 
 .DropDown:hover.DropDown svg {
@@ -53,12 +59,4 @@
   color: #393b44;
   font-size: 1.2rem;
   text-align: center;
-}
-
-.Break {
-  margin-top: 20px;
-  background: #616161;
-  width: 100%;
-  height: 1px;
-  border: none;
 }

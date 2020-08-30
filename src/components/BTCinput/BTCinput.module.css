@@ -1,27 +1,27 @@
 .Container {
-  display: block;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 60%;
   margin: 0 auto;
   font-size: 0;
 }
 
 .Container > div {
+  align-self: flex-end;
   width: 50%;
   margin: 0 auto;
   box-sizing: border-box;
   font-size: 1rem;
 }
 
-.Container h1 {
+.Container h6 {
   font-size: 1rem;
   text-align: center;
-  color: #393b44;
+  color: #757575;
+  margin-right: 20px;
 }
 
 .Container input {
-  width: 80%;
   text-align: center;
 }

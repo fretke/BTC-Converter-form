@@ -14,8 +14,16 @@ body {
   box-shadow: 0 1px 10px 1px #000;
 }
 
-.Form > hr:first-child {
+.Form > hr:first-of-type {
   margin-top: 10px;
+  background: #616161;
+  width: 100%;
+  height: 1px;
+  border: none;
+}
+
+.Form > hr:last-of-type {
+  margin-top: 30px;
   background: #616161;
   width: 100%;
   height: 1px;

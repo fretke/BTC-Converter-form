@@ -1,14 +1,16 @@
+//Element that manages displayed currencies, delete, add functionalities
+// as well as refreshes displayed data every minute
+
 import React, { Fragment, useState, useEffect } from "react";
-import CurrencyElement from "../../components/CurrencyElement/CurrencyElement";
-import styles from "./CurrencyBlock.module.css";
 import axios from "axios";
-
-import { formatCurrency } from "../../utils/helper";
-
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { Typography } from "@material-ui/core";
+
+import CurrencyElement from "../../components/CurrencyElement/CurrencyElement";
+import styles from "./CurrencyBlock.module.css";
+import { formatCurrency } from "../../utils/helper";
 
 const allCurrencies = ["USD", "GBP"];
 
@@ -17,12 +19,11 @@ const CurrencyBlock = ({ currentValue }) => {
   const [displayed, setDisplayed] = useState([{ name: "EUR" }]);
   const [btcData, setBtcData] = useState(null);
   const [updateTrigger, setUpdateTrigger] = useState(false);
-  const [addCurrency, setAddCurrecny] = useState(false);
+  const [addCurrency, setAddCurrency] = useState(false);
 
   useEffect(() => {
     loadData();
     const interval = setInterval(() => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       loadData();
     }, 60000);
 
@@ -32,8 +33,6 @@ const CurrencyBlock = ({ currentValue }) => {
   }, []);
 
   useEffect(() => {
-    console.log("updating data");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     updateData();
   }, [currentValue, updateTrigger]);
 
@@ -74,11 +73,15 @@ const CurrencyBlock = ({ currentValue }) => {
       name: value,
       amount: formatedAmount,
     };
-    currencyList.length === 1 && setAddCurrecny(false);
+    currencyList.length === 1 && setAddCurrency(false);
     setDisplayed([...displayed, displayedData]);
     setCurrencyList((prev) => {
       return prev.filter((item) => value !== item);
     });
+  };
+
+  const handleDropDownClick = () => {
+    setAddCurrency(!addCurrency);
   };
 
   const currencies = currencyList.map((item, index) => {
@@ -93,8 +96,7 @@ const CurrencyBlock = ({ currentValue }) => {
     return (
       <CurrencyElement
         key={index}
-        currency={element.name}
-        value={element.amount}
+        element={element}
         deleteItem={removeCurrency}
       />
     );
@@ -102,7 +104,6 @@ const CurrencyBlock = ({ currentValue }) => {
 
   return (
     <Fragment>
-      <hr className={styles.Break}></hr>
       <div className={currencyList.length === 0 ? styles.ElementContainer : ""}>
         {elements}
       </div>
@@ -110,7 +111,7 @@ const CurrencyBlock = ({ currentValue }) => {
         <div className={styles.DropDown}>
           <IconButton
             style={{ backgroundColor: "transparent" }}
-            onClick={() => setAddCurrecny(!addCurrency)}
+            onClick={handleDropDownClick}
             aria-label="add"
           >
             {addCurrency ? (
